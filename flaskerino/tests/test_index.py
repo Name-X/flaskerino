@@ -18,12 +18,12 @@ class BasicTests(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def test_main_page(self):
-        response = self.app.get('/', follow_redirects=True)
-        self.assertEqual(response.status_code, 200)
+   # def test_main_page(self):
+    #    response = self.app.get('/', follow_redirects=True)
+     #   self.assertEqual(response.status_code, 200)
 
     def test_main_page_index(self):
-        response = self.app.get('/index', follow_redirects=True)
+        response = self.app.get('/sample_app/index', follow_redirects=True)
         self.assertEqual(response.status_code, 200)
 
     def test_404_page(self):
