@@ -1,7 +1,7 @@
 from flask import Flask, render_template, url_for
-
+import time
 app = Flask(__name__)
-
+startTime = time.time()
 import json
 
 @app.route('/')
@@ -37,6 +37,14 @@ def fetch_images():
              ]
 
     return images
+
+@app.route("/_healthcheck")
+def getUptime():
+    """
+    Returns the number of seconds since the program started.
+    """
+    # do return startTime if you just want the process start time
+    return "Uptime in seconds : " + str(time.time() - startTime)
 
 @app.errorhandler(404)
 def not_found_error(error):
