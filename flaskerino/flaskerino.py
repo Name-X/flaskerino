@@ -5,7 +5,7 @@ startTime = time.time()
 import json
 
 @app.route('/')
-@app.route('/index')
+@app.route('/sample_app/index')
 def index():
     return render_template('index.html', images=fetch_images(), title="Flaskerino")
 
@@ -38,7 +38,7 @@ def fetch_images():
 
     return images
 
-@app.route("/_healthcheck")
+@app.route("/sample_app/_healthcheck")
 def getUptime():
     """
     Returns the number of seconds since the program started.
