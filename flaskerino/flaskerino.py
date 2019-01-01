@@ -41,7 +41,7 @@ def fetch_images():
 @app.route("/sample_app/_healthcheck")
 def getUptime():
     """
-    Returns the number of seconds since the program started.
+    Returns the number of seconds since the program started .
     """
     # do return startTime if you just want the process start time
     return "Uptime in seconds : " + str(time.time() - startTime)
