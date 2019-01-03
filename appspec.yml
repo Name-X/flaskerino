@@ -4,7 +4,7 @@ files:
   - source: .
     destination: /var/www/
 permissions:
-  - object: /var/www
+  - object: /var/www/deployment
     mode: 777
     type:
       - file
