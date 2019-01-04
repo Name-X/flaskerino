@@ -12,7 +12,7 @@ phases:
   post_build:
     commands:
       - find . -name "*.py" -exec pylint '{}' \;
-      - cd flaskerino && python tests/test_dummy.py -v
+      - python tests/test_dummy.py -v
 artifacts:
   files:
     - '**/*'
