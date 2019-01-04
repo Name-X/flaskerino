@@ -14,6 +14,8 @@ phases:
     commands:
       - echo "After executing test cases"
       - echo $CODEBUILD_BUILD_SUCCEEDING
+      - echo $CODEBUILD_SOURCE_VERSION
+      - echo $CODEBUILD_SOURCE_REPO_URL
       - echo "Printed CODE_BUILD_SUCCEEDING"
 artifacts:
   files:
