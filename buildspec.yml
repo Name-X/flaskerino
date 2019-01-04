@@ -12,12 +12,9 @@ phases:
       - cd flaskerino && python tests/test_index.py -v
   post_build:
     commands:
-      - echo "After executing test cases"
-      - echo $CODEBUILD_BUILD_SUCCEEDING
-      - echo $CODEBUILD_SOURCE_VERSION
-      - echo $CODEBUILD_SOURCE_REPO_URL
-      - echo "Printed CODE_BUILD_SUCCEEDING"
-      - echo CODEBUILD_SOURCE_REPO_URL:$CODEBUILD_SOURCE_REPO_URL CODEBUILD_SOURCE_VERSION:$CODEBUILD_SOURCE_VERSION CODEBUILD_WEBHOOK_TRIGGER:$CODEBUILD_WEBHOOK_TRIGGER > CODE_BUILD_DATA
+      - echo "Adding commit ID to a file for use in CodeDeploy"
+      - cd ..
+      - echo CODEBUILD_SOURCE_VERSION:$CODEBUILD_SOURCE_VERSION  > CODE_BUILD_DATA
 artifacts:
   files:
     - '**/*'
