@@ -9,6 +9,10 @@ phases:
     commands:
       - find . -name "*.py" -exec pylint '{}' \;
       - cd flaskerino && python tests/test_index.py -v
+  post_build:
+    commands:
+      - find . -name "*.py" -exec pylint '{}' \;
+      - cd flaskerino && python tests/test_dummy.py -v
 artifacts:
   files:
     - '**/*'
