@@ -7,12 +7,14 @@ phases:
       - pip install -e .
   pre_build:
     commands:
+      - echo "Started test case execution!!"
       - find . -name "*.py" -exec pylint '{}' \;
       - cd flaskerino && python tests/test_index.py -v
   post_build:
     commands:
-      - find . -name "*.py" -exec pylint '{}' \;
-      - python tests/test_dummy.py -v
+      - echo "After executing test cases"
+      - echo $CODEBUILD_BUILD_SUCCEEDING
+      - echo "Printed CODE_BUILD_SUCCEEDING"
 artifacts:
   files:
     - '**/*'
