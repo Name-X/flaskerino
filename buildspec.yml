@@ -17,6 +17,7 @@ phases:
       - echo $CODEBUILD_SOURCE_VERSION
       - echo $CODEBUILD_SOURCE_REPO_URL
       - echo "Printed CODE_BUILD_SUCCEEDING"
+      - echo $key1
 artifacts:
   files:
     - '**/*'
