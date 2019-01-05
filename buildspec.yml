@@ -12,9 +12,9 @@ phases:
       - cd flaskerino && python tests/test_index.py -v
   post_build:
     commands:
-      - echo "Adding commit ID to a file for use in CodeDeploy"
+      - echo "Adding repo info and commit ID to a file for use in CodeDeploy"
       - cd ..
-      - echo CODEBUILD_SOURCE_VERSION:$CODEBUILD_SOURCE_VERSION  > CODE_BUILD_DATA
+      - echo $CODEBUILD_SOURCE_REPO_URL $CODEBUILD_SOURCE_VERSION  > CODE_BUILD_DATA
 artifacts:
   files:
     - '**/*'
