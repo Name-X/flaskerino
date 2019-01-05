@@ -1,5 +1,4 @@
 # flaskerino
 Flask web app used for CI/CD Demo
 
-
-Check commit
+Send code build data to artifacts to use in subsequent steps 
