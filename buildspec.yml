@@ -7,8 +7,14 @@ phases:
       - pip install -e .
   pre_build:
     commands:
+      - echo "Started test case execution!!"
       - find . -name "*.py" -exec pylint '{}' \;
       - cd flaskerino && python tests/test_index.py -v
+  post_build:
+    commands:
+      - echo "Adding repo info and commit ID to a file for use in CodeDeploy"
+      - cd ..
+      - echo $CODEBUILD_SOURCE_REPO_URL $CODEBUILD_SOURCE_VERSION  > CODE_BUILD_DATA
 artifacts:
   files:
     - '**/*'
